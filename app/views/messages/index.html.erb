@@ -13,11 +13,13 @@
 </div>
 
 <br>
-<%= form_for(Message.new) do |f| %>
+<%= form_for(Message.new, :html => {:class => "form-group"}) do |f| %>
   Name:
-  <%= f.text_field :name %>
+  <%= f.text_field :name, :class => "form-control" %>
 
-  Mesage:
-  <%= f.text_field :body %>
+  Mesage (Max 400 Letters):
+  <%#= f.text_field :body %>
+  <%= f.text_area :body, :size => "100x4", :maxlength => "400", :class => "form-control" %>
+  <br>
   <%= f.submit class: "btn btn-sm btn-primary" %>
 <% end %>
