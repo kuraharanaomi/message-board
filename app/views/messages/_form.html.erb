@@ -1,4 +1,5 @@
 <%= form_for(@message) do |f| %>
+<%#= form_for(Message.new, :html => {:class => "form-group"}) do |f| %>
   <% if @message.errors.present? %>
     <div class="alert alert-danger">
       <%= alert %>
@@ -13,9 +14,11 @@
   <% end %>
 
   Name:
-  <%= f.text_field :name %>
+  <%= f.text_field :name, :class => "form-control" %>
 
-  Mesage:
-  <%= f.text_field :body %>
+  Mesage (Max 400 Letters):
+  <%#= f.text_field :body %>
+  <%= f.text_area :body, :size => "100x4", :maxlength => "400", :class => "form-control" %>
+  <br>
   <%= f.submit class: "btn btn-sm btn-primary" %>
 <% end %>
